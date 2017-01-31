@@ -1,6 +1,6 @@
 # compojure-experiments
 
-FIXME
+Wrote an API for `/things` backed by redis for fun using clojure
 
 ## Prerequisites
 
@@ -13,7 +13,3 @@ You will need [Leiningen][] 2.0.0 or above installed.
 To start a web server for the application, run:
 
     lein ring server
-
-## License
-
-Copyright © 2017 FIXME
