@@ -9,6 +9,8 @@
 (def server1-conn {:pool {} :spec {}}) ; See `wcar` docstring for opts
 (defmacro wcar* [& body] `(car/wcar server1-conn ~@body))
 
+;;TODO - move HTTP error handling out to try catch and wrap
+
 (defroutes app-routes
 	(GET "/" [] "Hello World")
 	(GET "/things/:id" [id] 
@@ -34,7 +36,7 @@
 						(= 
 							"OK" 
 							(wcar* (car/set key
-								(get (json/read-str (slurp body)) "name")))) ;need input validation
+								(get (json/read-str (slurp body)) "name")))) ;TODO - need input validation
 						(response/status
 							(response/content-type
 								(response/response
